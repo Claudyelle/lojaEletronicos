@@ -19,8 +19,9 @@ public class Pedido {
    }
 
     public double getTotal() {
-        total *= item.quant;
-        return total;
+        double t;
+        t = item.total();
+        return t;
     }
 
     public void setTotal(double total) {

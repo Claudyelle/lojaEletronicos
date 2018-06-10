@@ -13,8 +13,7 @@ import lojaeletronicos.poo.Vendedor;
  * @author Foto Claudia
  */
 public class CadastroVendedor extends javax.swing.JInternalFrame {
-    public static final ArrayList<Vendedor> vendedores = new ArrayList();
-
+    public static ArrayList<Vendedor> vendedores = new ArrayList();
     /**
      * Creates new form CadastroVendedor
      */
@@ -285,6 +284,7 @@ public class CadastroVendedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNascActionPerformed
 
+
     private void bSalvaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvaVendedorActionPerformed
          String nome = campoNome.getText();   
          String tel = campoTel.getText();
@@ -296,6 +296,7 @@ public class CadastroVendedor extends javax.swing.JInternalFrame {
          
          Vendedor vendedor = new Vendedor(nome, tel, nasc, setor, comissao, salario);
          vendedores.add(vendedor);
+         //vendedor = null;
 
         mostrar();
         campoNome.setText("");
@@ -308,14 +309,20 @@ public class CadastroVendedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalvaVendedorActionPerformed
     public void mostrar(){
         int tamanho = vendedores.size();
-        String matriz[][] = new String[tamanho] [6];
+        
+        for(int x = 0; x < tamanho; x++){
+            System.out.println("Salario teste: " + vendedores.get(x).salarioFinal());
+        }
+        
+        
+        String matriz[][] = new String[tamanho][6];
         
         for(int i = 0; i < tamanho; i++){
             matriz[i][0] = vendedores.get(i).nome;
             matriz[i][1] = vendedores.get(i).nasc;
             matriz[i][2] = vendedores.get(i).getTel();
             matriz[i][3] = vendedores.get(i).setor;
-            matriz[i][4] = vendedores.get(i).getComissao();
+            matriz[i][4] = Double.toString(vendedores.get(i).getComissao());
             matriz[i][5] = Double.toString(vendedores.get(i).salarioFinal());
         }
         System.out.println(tamanho);

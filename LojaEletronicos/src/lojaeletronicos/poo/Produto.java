@@ -20,4 +20,7 @@ public class Produto {
         return Double.toString(valor);
     }
     
+    public double getValorD(){
+        return this.valor;
+    }
 }

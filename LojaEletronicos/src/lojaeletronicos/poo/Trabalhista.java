@@ -2,7 +2,7 @@ package lojaeletronicos.poo;
 
 public interface Trabalhista {
     
-    void calculaInss();
+    double calculaInss();
     double salarioFinal();
     
 }

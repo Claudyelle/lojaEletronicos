@@ -11,8 +11,19 @@ public class ItemProduto {
         this.quant = quant;
     }
     public String getQuant(){
-        return Integer.toString(quant);
+        return  Integer.toString(this.quant);
     }
+    
+    public double total(){
+        return this.valor * this.quant;
+    }
+    
+    public double getVal(){
+        double v;
+        v = this.valor;
+        return v;
+    }
+    
     public String getValor(){
         return Double.toString(valor);
     }

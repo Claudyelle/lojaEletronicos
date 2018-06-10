@@ -7,7 +7,9 @@ public class Vendedor extends Pessoa implements Trabalhista{
     public double inss;
     
     public Vendedor(){
-        comissao = 0;
+        this.comissao = 0;
+        this.salario = 0;
+        this.inss = 0;
     }
     public Vendedor(String nome, String tel, String nasc, String setor, double comissao, double salario){
         this.setor = setor;
@@ -18,36 +20,41 @@ public class Vendedor extends Pessoa implements Trabalhista{
         this.salario = salario;
     }
     @Override
-    public void calculaInss(){
-        if(salario <= 1693.72)
-            inss = salario * 0.08;
-       if(salario >= 1693.73 && salario <= 2822.91)
-            inss = salario * 0.09;
-       if(salario > 2822.91)
-           inss = salario * 0.11;       
+    public double calculaInss(){
+        if(this.salario <= 1693.72){
+            this.inss = this.salario * 0.08;
+        }
+       if(this.salario >= 1693.73 && this.salario <= 2822.91){
+            this.inss = this.salario * 0.09;
+       }
+       if(this.salario > 2822.91){
+           this.inss = this.salario * 0.11;
+       }
+       return this.inss;
     }
     @Override
     public double salarioFinal(){
-        if(salario <= 1693.72)
-            inss = salario * 0.08;
-       if(salario >= 1693.73 && salario <= 2822.91)
-            inss = salario * 0.09;
-       if(salario > 2822.91)
-           inss = salario * 0.11;
+        double sal = 0;
+       double inssCalc = this.calculaInss();
        
-        salario = salario - inss + comissao;
-        return salario;
+        sal = (this.salario - inssCalc) + this.getComissao();
+        return sal;
+
     }
 
-    public String getComissao(){
-        return Double.toString(comissao);
+    public double getComissao(){
+        return this.comissao;
     }
     public void setComissao(double comissao) {
         this.comissao = comissao;
     }
     @Override
     public String informacoes(){
-        return " " + nome + " | Setor - " + setor;
+        return " " + this.nome + " | Setor - " + this.setor;
+    }
+    
+    public String getSalario(){
+        return Double.toString(this.salario);
     }
     
 }
