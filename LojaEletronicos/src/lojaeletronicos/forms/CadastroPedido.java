@@ -272,11 +272,10 @@ public class CadastroPedido extends javax.swing.JInternalFrame {
         int numV = cVendedor.getSelectedIndex();
         int numP = cProduto.getSelectedIndex();
         int quant = (Integer) cQuant.getValue();
-        double total = produtos.get(numP).getValorD();
        
         ItemProduto itemProduto = new ItemProduto(produtos.get(numP), produtos.get(numP).valor, quant);
         item.add(itemProduto);
-        Pedido pedido = new Pedido(clientes.get(numC), vendedores.get(numV), numero, itemProduto, total);
+        Pedido pedido = new Pedido(clientes.get(numC), vendedores.get(numV), numero, itemProduto);
         pedidos.add(pedido);
 
         inserirTabela();

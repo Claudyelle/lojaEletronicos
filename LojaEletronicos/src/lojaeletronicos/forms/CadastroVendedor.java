@@ -292,7 +292,6 @@ public class CadastroVendedor extends javax.swing.JInternalFrame {
          String setor = campoSetor.getText();
          double comissao = Double.parseDouble(campoComissao.getText());
          double salario = Double.parseDouble(campoSalario.getText());
-         System.out.println("Comissao: " + comissao + " | Salário: " + salario);
          
          Vendedor vendedor = new Vendedor(nome, tel, nasc, setor, comissao, salario);
          vendedores.add(vendedor);
@@ -309,12 +308,7 @@ public class CadastroVendedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bSalvaVendedorActionPerformed
     public void mostrar(){
         int tamanho = vendedores.size();
-        
-        for(int x = 0; x < tamanho; x++){
-            System.out.println("Salario teste: " + vendedores.get(x).salarioFinal());
-        }
-        
-        
+                
         String matriz[][] = new String[tamanho][6];
         
         for(int i = 0; i < tamanho; i++){

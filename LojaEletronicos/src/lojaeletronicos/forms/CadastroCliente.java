@@ -310,7 +310,6 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
             matriz[i][5] = clientes.get(i).getLimiteCredito();
             matriz[i][6] = clientes.get(i).getQuantDependentes();
         }
-        System.out.println(tamanho);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             matriz,
             new String [] {

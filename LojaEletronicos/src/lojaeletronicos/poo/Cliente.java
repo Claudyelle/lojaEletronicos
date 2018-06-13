@@ -6,10 +6,7 @@ public class Cliente extends Pessoa{
     public int quantDependentes;
     private double limiteCredito;
     public boolean inadimplente;
-    
-    public Cliente(){
-        inadimplente = false;
-    }    
+      
     public Cliente(String nome, String tel, String nasc, String referencia,
                    String status, double limiteCredito, int quantDependentes){
         setTel(tel);
